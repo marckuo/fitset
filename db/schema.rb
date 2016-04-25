@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20160420204523) do
     t.integer  "player_one_id"
     t.integer  "player_two_id"
     t.integer  "sport_id"
+    t.string   "start_time"
+    t.string   "end_time"
   end
 
   create_table "reviews", force: :cascade do |t|
