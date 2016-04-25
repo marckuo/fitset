@@ -14,6 +14,7 @@
       <tr class="text-red">
         <th>#</th>
         <th>Location</th>
+        <th>Time</th>
         <th>Match Creator</th>
         <th>Created At</th>
         <th></th>
@@ -26,6 +27,7 @@
       <tr>
        <td><a href="/match/<%= match.id %>"><%= @num %></a></td>
         <td><%= match.address %></td>
+        <td><%= match.start_time %> to <%= match.end_time %></td>
         <td class="text-capitalize"><%= match.player_one.username %></td>
         <td><%= match.created_at.to_date %></td>
         <td><a href="/match/<%= match.id %>"><button type="button" class="btn-success"> Open Match</button></a></td>
@@ -42,6 +44,7 @@
       <tr class="text-red">
         <th>#</th>
         <th>Location</th>
+        <th>Time</th>
         <th>Created At</th>
         <th></th>
       </tr>
@@ -53,6 +56,7 @@
       <tr>
        <td><a href="/match/<%= mymatch.id %>"><%= @num %></a></td>
         <td><%= mymatch.address %></td>
+        <td><%= mymatch.start_time %> to <%= mymatch.end_time %></td>
         <td><%= mymatch.created_at.to_date %></td>
         <td><a href="/match/<%= mymatch.id %>"><button type="button" class="btn-success"> Open Match</button></a></td>
       </tr>
