@@ -52,6 +52,7 @@
             <button name="review" class="btn btn-danger">Review</button>
           </a>
         <% else %>
+  
           <h2> You reviewed this match as: </h2>
             <% @match.reviews.each do |review| %>
             <% if review.reviewed_by_player == @user %>
@@ -61,7 +62,7 @@
           <% end %>
           <% end %>
           <% end %>
-          <h2>Your comments for this match</h2>
+          <h2>Your comments for this match:</h2>
              <% @match.reviews.each do |review| %>
             <% if review.reviewed_by_player == @user %>
                  <%= review.comments %>
@@ -76,7 +77,7 @@
           <% end %>
           <% end %>
           <% end %>
-          <h2>Your opponents comments for this match:</h2>
+          <h2>Your opponent's comments for this match:</h2>
              <% @match.reviews.each do |review| %>
             <% if review.reviewed_player == @user %>
                  <%= review.comments %>
