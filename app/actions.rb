@@ -159,7 +159,7 @@ post "/match/:id/review" do
     # grab star rating  
     @match = Match.find params[:id]
     # @review_rating = params[:star]
-    Review.create(from_user_id: @match.player_one_id, to_user_id: @match.player_two_id, rating: params[:star], match_id: @match.id, comments: params[:comm])
+    Review.create(from_user_id: @match.player_two_id, to_user_id: @match.player_one_id, rating: params[:star], match_id: @match.id, comments: params[:comm])
     redirect "/match/#{@match.id}"
 end
 
