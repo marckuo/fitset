@@ -37,9 +37,15 @@
       <tr>
       <td></td>
       <td>    
-        <% if @match.player_two == nil %>
+        <% if @match.player_two == nil && @match.player_one.id != @user.id%>
           <form action="/challenge/<%= @match.id %>" method="POST">
             <button type="submit" name="challenge" class="btn btn-danger">Join</button>
+          </form>
+        <% elsif @match.player_one.id == @user.id %>
+          <a href= <%= "/match/#{@match.id}/review" %>>
+          <form action="/match/<%= @match.id%>/delete_match" method="post">
+            <button name="delete" class="btn btn-danger">Close Match</button>
+          </a>          
           </form>
         <% elsif @match.reviews.length == 0 %>
           <a href= <%= "/match/#{@match.id}/review" %>>
