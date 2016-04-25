@@ -43,7 +43,10 @@
     </a>
     <ul class="dropdown-menu">
       <li class="text-capitalize text-center">Hi <%= @user.username %>!</li>
+      <% if @user.profile_pic? %>
       <center><img class="profile_sm" src="uploads/<%=@user.profile_pic%>"></center>
+      <% else %>
+      <% end %>
       <hr>
       <li><a href="/profilepage">Profile</a></li>
       <li><a href="/welcome">Play Now!</a></li>
