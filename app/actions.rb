@@ -53,6 +53,9 @@ end
 get "/match/:id" do
   @user = User.find_by_session_token(session[:session_token])
   @match = Match.find params[:id]
+  @reviews = Review.all.select do |review|
+  review.match_id == @match_id
+  end
   erb :'show'
 end
 
