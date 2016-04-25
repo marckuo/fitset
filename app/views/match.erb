@@ -34,7 +34,34 @@
       <% end %>
     </tbody>
   </table>
+
+
+<h2>Your Open Matches</h2>
+  <table class="table">
+    <thead>
+      <tr class="text-red">
+        <th>#</th>
+        <th>Location</th>
+        <th>Created At</th>
+        <th></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @num=1 %>
+      <% @mymatches.each do |mymatch| %>
+      <tr>
+       <td><a href="/match/<%= mymatch.id %>"><%= @num %></a></td>
+        <td><%= mymatch.address %></td>
+        <td><%= mymatch.created_at.to_date %></td>
+        <td><a href="/match/<%= mymatch.id %>"><button type="button" class="btn-success"> Open Match</button></a></td>
+      </tr>
+      <% @num +=1 %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+
 
 <!-- js -->
 <script type="text/javascript" src="../../js/jquery-1.8.0.js"></script>

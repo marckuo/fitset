@@ -50,6 +50,9 @@ get "/match" do
   @matches = @sport.matches.select do |match| 
     match.player_one_id != @user.id && match.player_two_id == nil
   end
+  @mymatches = @sport.matches.select do |mymatch|
+    mymatch.player_one_id == @user.id && mymatch.player_two_id == nil
+  end
   erb :'match'
 end
 
@@ -167,4 +170,11 @@ get '/session/sign_out' do
   User.find_by_session_token(session[:session_token]).update!(session_token: nil)
   session.clear
   redirect '/login'
+end
+
+post '/match/:id/delete_match' do
+  @user = User.find_by_session_token(session[:session_token])
+  @match = Match.find params[:id]
+  @match.destroy
+  redirect "/match"
 end
