@@ -19,23 +19,19 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navcollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
         <div class="navbar-brand">SPORTSFLING</div>
        </div>
 
-      <div class="collapse navbar-collapse" id="collapsemenu">
-        <ul class="nav navbar-nav">
-        <li><a href="/#homeslider">HOME</a></li>
-        <li><a href="/#how">HOW IT WORKS</a></li>
-
-        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tab 3
-          <span class="caret"></span>
-          </a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Drop 1</a></li>
-              <li><a href="#">Drop 2</a></li>
-            </ul>
-          </li>
-        </ul>
+    <div class="collapse navbar-collapse" id="navcollapse">
+      <ul class="nav navbar-nav">
+          <li><a href="/#homeslider">HOME</a></li>
+          <li><a href="/#how">HOW IT WORKS</a></li>
+      </ul>
 
 <div class="navbar-right navbar-form">
 
@@ -47,10 +43,11 @@
     </a>
     <ul class="dropdown-menu">
       <li class="text-capitalize text-center">Hi <%= @user.username %>!</li>
+      <center><img class="profile_sm" src="uploads/<%=@user.profile_pic%>"></center>
       <hr>
       <li><a href="/profilepage">Profile</a></li>
+      <li><a href="/welcome">Play Now!</a></li>
       <li><a href="/match_history">Match History</a></li>
-      <li><a href="/reviews">Reviews</a></li>
       <li><a href="/logout">Logout</a></li>
     </ul>
 
@@ -69,7 +66,7 @@
         </div>  
   <% end %>
         </div>
-
+        </div>
       </div>
     </div>
     </div>

@@ -1,7 +1,7 @@
 <div class="container padnav form-column">
 <h2>My Profile:</h2>
 <% if @user.profile_pic? %>
-  <img class="profile_pic" src="uploads/<%=@user.profile_pic%>">
+  <img class="profile_med" src="uploads/<%=@user.profile_pic%>">
   <p class="text-red">Change Profile Pic:</p>
 <form action="upload" enctype="multipart/form-data" method="POST">
   <input type="file" name="myfile">
