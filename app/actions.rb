@@ -1,6 +1,5 @@
 # Homepage (Root path)
 require 'securerandom'
-require 'haml'
 require 'pry'
 enable :sessions
 
@@ -32,11 +31,6 @@ get '/profilepage' do
   @user = User.find_by_session_token(session[:session_token])
   erb :'profilepage'
 end
-
-get "/upload" do
-  @user = User.find_by_session_token(session[:session_token])
-  haml :upload
-end    
 
 get "/create" do
   @user = User.find_by_session_token(session[:session_token])
