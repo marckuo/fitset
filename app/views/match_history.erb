@@ -30,18 +30,38 @@
         </td>
         <td><%= match.created_at.to_date %></td>
         <td><a href="/match/<%= match.id %>"><button type="button" class="btn-success"> View Match</button></a></td>
+       <td>
+
          <% @num +=1 %>
-         <% match.reviews.each do |review| %>
-          <td>
-            <% review.rating.times do %>
-            <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
-            <label class="star star-1" for="star-1"></label>
-           <% end %>
+          <% match.reviews.each do |review| %>
+           <% if review.reviewed_by_player == @user %>
+              <% review.rating.times do %>
+              <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+              <label class="star star-1" for="star-1"></label>
+              <% end %>
+            <% end %>
           </td>
           <td>
+            <% if review.reviewed_by_player == @user %>
             <%= review.comments %>
-          </td>
+            <% end %>
           <% end %>
+          </td>
+        <td>
+          <% match.reviews.each do |review| %>
+              <% if review.reviewed_player == @user %>
+                <% review.rating.times do %>
+                <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+                <label class="star star-1" for="star-1"></label>
+                <% end %>
+               <% end %>
+              </td>
+              <td>
+                 <% if review.reviewed_player == @user %>
+                   <%= review.comments %>
+                <% end %>
+          <% end %>
+          </td>
       <% end %>
      </tr>
     </tbody>
