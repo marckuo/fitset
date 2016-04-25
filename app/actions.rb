@@ -140,6 +140,8 @@ post '/new_match' do
   @match = Match.create(
     sport_id: session[:sport_id],
     address: params[:address],
+    start_time: params[:start_time],
+    end_time: params[:end_time],
     player_one_id: @user.id
   )
   redirect '/match'
