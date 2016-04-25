@@ -54,15 +54,34 @@
         <% else %>
           <h2> You reviewed this match as: </h2>
             <% @match.reviews.each do |review| %>
+            <% if review.reviewed_by_player == @user %>
             <% review.rating.times do %>
             <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
             <label class="star star-1" for="star-1"></label>
           <% end %>
           <% end %>
-        <h2>Comments:</h2>
-           <% @match.reviews.each do |review| %>
-            <%= review.comments %>
-        <% end %>
+          <% end %>
+          <h2>Your comments for this match</h2>
+             <% @match.reviews.each do |review| %>
+            <% if review.reviewed_by_player == @user %>
+                 <%= review.comments %>
+          <% end %>
+          <% end %>
+          <h2>Your opponent review for this match:</h2>
+          <% @match.reviews.each do |review| %>
+            <% if review.reviewed_player == @user %>
+            <% review.rating.times do %>
+            <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+            <label class="star star-1" for="star-1"></label>
+          <% end %>
+          <% end %>
+          <% end %>
+          <h2>Your opponents comments for this match:</h2>
+             <% @match.reviews.each do |review| %>
+            <% if review.reviewed_player == @user %>
+                 <%= review.comments %>
+          <% end %>
+          <% end %>
         <% end %>
       </td>
       <td></td>
