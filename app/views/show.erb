@@ -51,12 +51,12 @@
             <% review.rating.times do %>
             <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
             <label class="star star-1" for="star-1"></label>
-        <% end %>
-          <% if review.comments != nil %>
-            <h2>Comments:</h2>
-            <% review.comments %>
           <% end %>
-     <% end %>
+          <% end %>
+        <h2>Comments:</h2>
+           <% @match.reviews.each do |review| %>
+            <%= review.comments %>
+        <% end %>
         <% end %>
       </td>
       <td></td>
